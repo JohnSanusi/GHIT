@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GHIT- Home</title>
+    <link href="./src/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+      integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="font-sans font-semibold text-black">
+    <header class="w-full h-full bg-gray">
+      <nav
+        class="bg-white/20 fixed w-full z-20 top-0 start-0 shadow-md backdrop-blur-md"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+      >
+        <div
+          class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+        >
+          <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <span
+              class="self-center text-3xl font-bold whitespace-nowrap text-blue-500"
+              >GHIT</span
+            >
+          </a>
+          <div
+            class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"
+          >
+            <a
+              href="login.html"
+              class="text-black hidden border border-black-[1.8px] font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 cursor-pointer md:flex lg:flex hover:shadow-xl"
+            >
+              Login
+            </a>
+            <a
+              href="signup.html"
+              class="text-white bg-blue-500 hover:bg-blue-600 cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Get started
+            </a>
+            <button
+              data-collapse-toggle="navbar-sticky"
+              type="button"
+              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-controls="navbar-sticky"
+              aria-expanded="false"
+              id="icon"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="w-5 h-5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 17 14"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 1h15M1 7h15M1 13h15"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+            id="navbar-sticky"
+          >
+            <ul
+              class="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0"
+            >
+              <li>
+                <a
+                  href="#courses"
+                  class="block py-2 px-3 text-black rounded-sm hover:text-blue-500 md:p-0"
+                  >Courses</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="block py-2 px-3 text-black hover:text-blue-500 rounded-sm md:p-0"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  class="block py-2 px-3 text-black hover:text-blue-500 rounded-sm md:p-0"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="block py-2 px-3 text-black hover:text-blue-500 rounded-sm md:p-0"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <section
+        id="hero"
+        class="mt-20 flex flex-col gap-4 lg:flex lg:flex-row lg:gap-x-5 w-full p-5"
+      >
+        <div class="w-full lg:w-[50%]">
+          <button
+            href="#"
+            class="text-black rounded-2xl text-sm font-medium border-gray-300 border-[1.8px] w-50 h-7 p-1 flex justify-center items-center mb-2"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
+            Launch Your Tech Career
+          </button>
+          <h1
+            class="font-sans font-bold text-3xl md:text-6xl lg:6xl"
+            data-aos="fade-down"
+            data-aos-duration="1000"
+          >
+            Master Technology.
+          </h1>
+          <h1
+            class="font-sans font-bold text-3xl md:text-6xl lg:6xl"
+            data-aos="fade-down"
+            data-aos-duration="1000"
+          >
+            Build The Future.
+          </h1>
+          <p
+            class="text-lg text-gray-700 font-light mt-1.5 font-sans"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
+            From coding to robotics, graphics design to solar engineering <br />
+            our expert-led courses prepare you for the most in-demand <br />
+            tech careers.
+          </p>
+          <div class="flex gap-3">
+            <a
+              href="courses.html"
+              class="cursor-pointer text-white bg-blue-500 rounded-lg text-base font-semibold w-50 h-12 p-1 flex justify-center items-center mt-2 hover:shadow-xl"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              Explore Courses
+              <i class="bi bi-arrow-right text-lg mx-1.5 mt-1"></i>
+            </a>
+          </div>
+        </div>
+        <div
+          class="w-full lg:w-[50%]"
+          data-aos="fade-in"
+          data-aos-duration="1000"
+        >
+          <img
+            src="img/hero-bg.png"
+            alt=""
+            class="w-full h-[50%] md:h-[30%] lg:w-full lg:h-[70%] rounded-lg"
+          />
+        </div>
+      </section>
+      <a
+        href="#"
+        class="fixed bottom-10 right-4 p-1 bg-blue-500 flex justify-center items-center flex-col w-15 h-15 rounded-full z-50"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <i class="bi bi-arrow-up text-white text-3xl"></i>
+      </a>
+    </header>
+    <main>
+      <section id="courses" class="flex flex-col gap-6 p-8">
+        <div
+          class="flex flex-col gap-1 justify-center items-center"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <button
+            href="#"
+            class="text-black rounded-2xl text-sm font-medium border-gray-300 border-[1.8px] w-40 h-7 p-1 flex justify-center items-center mb-2"
+          >
+            Our Programs
+          </button>
+          <h1 class="font-sans font-bold text-4xl md:text-6xl lg:6xl">
+            Featured Courses
+          </h1>
+          <p
+            class="text-base text-gray-700 font-light mt-1.5 font-sans lg:text-lg text-center"
+          >
+            Discover our most popular courses across multiple tech disciplines,
+            designed to help you master the skills employers are looking for.
+          </p>
+        </div>
+        <div
+          class="flex flex-col gap-4 mt-5 md:flex md:flex-row md:flex-wrap md:gap-5 lg:flex lg:flex-row lg:gap-6"
+        >
+          <div
+            class="flex flex-col justify-between flex-wrap gap-4 w-full md:w-[48%] h-65 hover:shadow-xl lg:w-[32%] border-gray-500 border-[1.8px] p-4 rounded-lg mb-6"
+            data-aos="fade-in"
+            data-aos-duration="1000"
+          >
+            <div>
+              <h1 class="text-3xl font-bold mb-1.5">
+                Front-End Web Development
+              </h1>
+              <p class="text-lg font-light">
+                Master HTML, CSS, JavaScript, React
+              </p>
+            </div>
+            <div>
+              <p class="text-sm font-extralight mb-1">
+                <i class="bi bi-laptop text-sm mr-1"> 12 weeks</i>
+              </p>
+              <p class="text-sm font-extralight">
+                <i class="bi bi-people text-sm mr-1"> Beginner to advanced</i>
+              </p>
+            </div>
+            <div class="flex flex-row justify-between items-center">
+              <p class="font-bold text-base">$1,000</p>
+              <a
+                href="courses.html"
+                class="cursor-pointer text-black border-gray-500 border-[1.8px] rounded-md text-base font-medium w-30 h-10 p-1 flex items-center justify-center"
+              >
+                learn More
+              </a>
+            </div>
+          </div>
+          <div
+            class="flex flex-col justify-between gap-4 w-full h-65 hover:shadow-xl md:w-[48%] lg:w-[32%] border-gray-500 border-[1.8px] p-4 rounded-lg"
+            data-aos="fade-in"
+            data-aos-duration="1000"
+          >
+            <div>
+              <h1 class="text-3xl font-bold mb-1.5">Graphics Design</h1>
+              <p class="text-lg font-light">
+                Adobe Creative Suite, UI/UX and branding
+              </p>
+            </div>
+            <div>
+              <p class="text-sm font-extralight mb-1">
+                <i class="bi bi-laptop text-sm mr-1"> 14 weeks</i>
+              </p>
+              <p class="text-sm font-extralight">
+                <i class="bi bi-people text-sm mr-1"> Beginner to advanced</i>
+              </p>
+            </div>
+            <div class="flex flex-row justify-between items-center">
+              <a
+                href="courses.html"
+                class="cursor-pointer text-black border-gray-500 border-[1.8px] rounded-md text-base font-medium w-30 h-10 p-1 flex items-center justify-center"
+              >
+                learn More
+              </a>
+            </div>
+          </div>
+          <div
+            class="flex flex-col justify-between gap-4 w-full h-65 hover:shadow-xl md:w-[48%] lg:w-[32%] border-gray-500 border-[1.8px] p-4 rounded-lg"
+            data-aos="fade-in"
+            data-aos-duration="1000"
+          >
+            <div>
+              <h1 class="text-3xl font-bold mb-1.5">Robotics Engineering</h1>
+              <p class="text-lg font-light">
+                Robot design, programming, sensors, and automation systems
+              </p>
+            </div>
+            <div>
+              <p class="text-sm font-extralight mb-1">
+                <i class="bi bi-laptop text-sm mr-1"> 18 weeks</i>
+              </p>
+              <p class="text-sm font-extralight">
+                <i class="bi bi-people text-sm mr-1"> Beginner to advanced</i>
+              </p>
+            </div>
+            <div class="flex flex-row justify-between items-center">
+              <p class="font-bold text-base">$2,499</p>
+              <a
+                href="courses.html"
+                class="cursor-pointer text-black border-gray-500 border-[1.8px] rounded-md text-base font-medium w-30 h-10 p-1 flex items-center justify-center"
+              >
+                learn More
+              </a>
+            </div>
+          </div>
+          <div
+            class="flex flex-col justify-between gap-4 w-full h-65 hover:shadow-xl md:w-[48%] lg:w-[32%] border-gray-500 border-[1.8px] p-4 rounded-lg"
+            data-aos="fade-in"
+            data-aos-duration="1000"
+          >
+            <div>
+              <h1 class="text-3xl font-bold mb-1.5">Solar Engineering</h1>
+              <p class="text-lg font-light">
+                Circuit design, microcontrollers, power systems, and electronics
+              </p>
+            </div>
+            <div>
+              <p class="text-sm font-extralight mb-1">
+                <i class="bi bi-laptop text-sm mr-1"> 16 weeks</i>
+              </p>
+              <p class="text-sm font-extralight">
+                <i class="bi bi-people text-sm mr-1"> Beginner to advanced</i>
+              </p>
+            </div>
+            <div class="flex flex-row justify-between items-center">
+              <a
+                href="courses.html"
+                class="cursor-pointer text-black border-gray-500 border-[1.8px] rounded-md text-base font-medium w-30 h-10 p-1 flex items-center justify-center"
+              >
+                learn More
+              </a>
+            </div>
+          </div>
+          <div
+            class="flex flex-col justify-between gap-4 w-full h-65 hover:shadow-xl md:w-[48%] lg:w-[32%] border-gray-500 border-[1.8px] p-4 rounded-lg"
+            data-aos="fade-in"
+            data-aos-duration="1000"
+          >
+            <div>
+              <h1 class="text-3xl font-bold mb-1.5">Electrical Engineering</h1>
+              <p class="text-lg font-light">
+                Circuit design, microcontrollers, power systems, and electronics
+              </p>
+            </div>
+            <div>
+              <p class="text-sm font-extralight mb-1">
+                <i class="bi bi-laptop text-sm mr-1"> 20 weeks</i>
+              </p>
+              <p class="text-sm font-extralight">
+                <i class="bi bi-people text-sm mr-1"> Beginner to advanced</i>
+              </p>
+            </div>
+            <div class="flex flex-row justify-between items-center">
+              <a
+                href="courses.html"
+                class="cursor-pointer text-black border-gray-500 border-[1.8px] rounded-md text-base font-medium w-30 h-10 p-1 flex items-center justify-center"
+              >
+                learn More
+              </a>
+            </div>
+          </div>
+          <div
+            class="flex flex-col justify-between gap-4 w-full h-65 hover:shadow-xl md:w-[48%] lg:w-[32%] border-gray-500 border-[1.8px] p-4 rounded-lg"
+            data-aos="fade-in"
+            data-aos-duration="1000"
+          >
+            <div>
+              <h1 class="text-3xl font-bold mb-1.5">Electrical Engineering</h1>
+              <p class="text-lg font-light">
+                Circuit design, microcontrollers, power systems, and electronics
+              </p>
+            </div>
+            <div>
+              <p class="text-sm font-extralight mb-1">
+                <i class="bi bi-laptop text-sm mr-1"> 20 weeks</i>
+              </p>
+              <p class="text-sm font-extralight">
+                <i class="bi bi-people text-sm mr-1"> Beginner to advanced</i>
+              </p>
+            </div>
+            <div class="flex flex-row justify-between items-center">
+              <a
+                href="courses.html"
+                class="cursor-pointer text-black border-gray-500 border-[1.8px] rounded-md text-base font-medium w-30 h-10 p-1 flex items-center justify-center"
+              >
+                learn More
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-10 flex justify-center items-center"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <a
+            href="courses.html"
+            class="cursor-pointer text-black border-gray-500 border-[1.8px] rounded-md text-lg font-medium w-50 h-15 p-1 flex items-center justify-center hover:shadow-xl"
+          >
+            View All Courses <i class="bi bi-arrow-right text-2xl ml-2"></i>
+          </a>
+        </div>
+      </section>
+      <section
+        id="about"
+        class="flex flex-col gap-2 p-8 lg:mt-12 justify-center items-center"
+      >
+        <div class="flex" data-aos="fade-down" data-aos-duration="1000">
+          <button
+            href="#"
+            class="text-black rounded-2xl text-sm font-medium border-gray-300 border-[1.8px] w-40 h-7 p-1 flex justify-center items-center mb-2"
+          >
+            Why Choose Us
+          </button>
+        </div>
+        <div
+          class="flex justify-center items-center flex-col"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+        >
+          <h1 class="font-bold text-3xl md:text-5xl lg:6xl">
+            Learn With Confidence
+          </h1>
+          <p
+            class="text-base text-gray-700 font-light text-center mt-1.5 font-sans lg:text-lg"
+          >
+            Our multi-disciplinary tech academy offers a unique learning
+            experience with expert instructors <br />
+            and a proven curriculum across all technology fields
+          </p>
+        </div>
+        <div
+          class="flex flex-col gap-5 md:flex md:flex-row md:flex-wrap lg:flex lg:flex-row lg:gap-5"
+        >
+          <div
+            class="flex flex-col gap-1 justify-center items-center w-full h-50 rounded-lg bg-gray-50 p-4 md:w-[48%] lg:w-[32%] hover:shadow-xl"
+            data-aos="fade-in"
+            data-aos-duration="1000"
+          >
+            <i
+              class="bi bi-laptop bg-white rounded-[100%] w-15 h-15 flex justify-center items-center text-3xl lg:w-20 lg:h-20"
+            ></i>
+            <h1 class="font-bold text-xl md:text-3xl lg:4xl">
+              Project Based Learning
+            </h1>
+            <p
+              class="text-base text-gray-700 font-light font-sans text-center lg:text-lg"
+            >
+              Build real-world projects that you can add to your portfolio and
+              showcase after graduation
+            </p>
+          </div>
+          <div
+            class="flex flex-col gap-1 justify-center items-center w-full h-50 rounded-lg bg-gray-50 p-4 md:w-[48%] lg:w-[32%] hover:shadow-xl"
+            data-aos="fade-in"
+            data-aos-duration="1000"
+          >
+            <i
+              class="bi bi-people bg-white rounded-[100%] w-15 h-15 flex justify-center items-center text-3xl lg:w-20 lg:h-20"
+            ></i>
+            <h1 class="font-bold text-xl md:text-3xl lg:4xl">
+              Expert Instructors
+            </h1>
+            <p
+              class="text-base text-gray-700 font-light font-sans text-center lg:text-lg"
+            >
+              Learn from industry proffessionals with years of experience in
+              software development
+            </p>
+          </div>
+          <div
+            class="flex flex-col gap-1 justify-center items-center w-full h-50 rounded-lg bg-gray-50 p-4 md:w-[48%] lg:w-[32%] hover:shadow-xl"
+            data-aos="fade-in"
+            data-aos-duration="1000"
+          >
+            <i
+              class="bi bi-globe bg-white rounded-[100%] w-15 h-15 flex justify-center items-center text-3xl lg:w-20 lg:h-20"
+            ></i>
+            <h1 class="font-bold text-xl md:text-3xl lg:4xl">Career Support</h1>
+            <p
+              class="text-base text-gray-700 font-light font-sans text-center lg:text-lg"
+            >
+              Get help with resume building, interview preparation, and job
+              placement
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        id="services"
+        class="flex flex-col gap-2 p-8 justify-center items-center bg-gray-50"
+      >
+        <div class="flex" data-aos="fade-down" data-aos-duration="1000">
+          <button
+            href="#"
+            class="text-black rounded-2xl text-sm font-medium border-gray-300 border-[1.8px] w-30 h-7 p-1 flex justify-center items-center mb-2"
+          >
+            Our Services
+          </button>
+        </div>
+        <div
+          class="flex justify-center items-center flex-col"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+        >
+          <h1 class="font-bold text-3xl md:text-5xl lg:6xl">What We Do</h1>
+          <p
+            class="text-base text-gray-700 font-light text-center mt-1.5 font-sans lg:text-lg"
+          >
+            Here is a list of other programs and services run by us
+          </p>
+        </div>
+        <div
+          class="flex flex-col gap-5 md:flex md:flex-row md:flex-wrap lg:flex lg:flex-row lg:gap-5"
+        >
+          <div
+            class="flex flex-col gap-1 justify-center items-center w-full h-50 bg-white rounded-lg p-4 md:w-[48%] lg:w-[32%] lg:h-70 hover:shadow-xl"
+            data-aos="fade-in"
+            data-aos-duration="3000"
+          >
+            <i
+              class="bi bi-box-seam bg-gray-50 rounded-[100%] w-15 h-15 flex justify-center items-center text-3xl lg:w-20 lg:h-20"
+            ></i>
+            <h1 class="font-bold text-xl md:text-3xl lg:4xl">Products</h1>
+            <p
+              class="text-base text-gray-700 font-light text-center lg:text-lg"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
+              laudantium nisi
+            </p>
+            <a
+              href="products.html"
+              class="text-white bg-blue-500 hover:bg-blue-600 cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-1 w-[30%]"
+            >
+              Visit <i class="bi bi-chevron-right text-lg"></i>
+            </a>
+          </div>
+          <div
+            class="flex flex-col gap-1 justify-center items-center w-full h-50 bg-white rounded-lg p-4 md:w-[48%] lg:w-[32%] lg:h-70 hover:shadow-xl"
+            data-aos="fade-in"
+            data-aos-duration="3000"
+          >
+            <i
+              class="bi bi-sun bg-gray-50 rounded-[100%] w-15 h-15 flex justify-center items-center text-3xl lg:w-20 lg:h-20"
+            ></i>
+            <h1 class="font-bold text-xl md:text-3xl lg:4xl">
+              Solar Solutions
+            </h1>
+            <p
+              class="text-base text-gray-700 font-light font-sans text-center lg:text-lg"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
+              laudantium nisi
+            </p>
+            <button
+              type="button"
+              class="text-white bg-blue-500 hover:bg-blue-600 cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-1 w-[30%]"
+            >
+              Visit <i class="bi bi-chevron-right text-lg"></i>
+            </button>
+          </div>
+          <div
+            class="flex flex-col gap-1 justify-center items-center w-full h-50 bg-white rounded-lg p-4 md:w-[48%] lg:w-[32%] lg:h-70 hover:shadow-xl"
+            data-aos="fade-in"
+            data-aos-duration="3000"
+          >
+            <i
+              class="bi bi-tools bg-gray-50 rounded-[100%] w-15 h-15 flex justify-center items-center text-3xl lg:w-20 lg:h-20"
+            ></i>
+            <h1 class="font-bold text-xl md:text-3xl lg:4xl">Repairs</h1>
+            <p
+              class="text-base text-gray-700 font-light font-sans text-center lg:text-lg"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
+              laudantium nisi
+            </p>
+            <button
+              type="button"
+              class="text-white bg-blue-500 hover:bg-blue-600 cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-1 w-[30%]"
+            >
+              Visit <i class="bi bi-chevron-right text-lg"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="flex flex-col gap-4 p-8">
+        <div
+          class="flex justify-center items-center"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+        >
+          <button
+            href="#"
+            class="text-black rounded-2xl text-sm font-medium border-gray-300 border-[1.8px] w-30 h-7 p-1 flex justify-center items-center text-center"
+          >
+            Contact Us
+          </button>
+        </div>
+        <div
+          class="flex justify-center items-center flex-col"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+        >
+          <h1 class="font-bold text-3xl md:text-5xl lg:6xl">Reach Out</h1>
+          <p
+            class="text-base text-gray-700 font-light text-center mt-1 font-sans lg:text-lg"
+          >
+            Feel free to reach out to us in the case of any questions
+          </p>
+        </div>
+        <div
+          class="flex justify-center items-center mt-3"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <form class="w-full h-auto p2 md:w-full lg:w-[50%]">
+            <div
+              class="flex flex-col gap-3 md:flex md:flex-xol lg:flex lg:flex-row"
+            >
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Full Name"
+                class="border border-gray-[1.5px] p-4 rounded-lg font-light text-lg w-full md:w-full lg:w-[50%]"
+              />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                class="border border-gray-[1.5px] p-4 rounded-lg font-light text-lg w-full md:w-full lg:w-[50%]"
+              />
+            </div>
+            <input
+              type="text"
+              name="subject"
+              id="subject"
+              placeholder="Subject"
+              class="border border-gray-[1.5px] p-4 rounded-lg font-light text-lg w-full mt-3"
+            />
+            <textarea
+              name="message"
+              id="message"
+              placeholder="messsage...."
+              cols="30"
+              rows="5"
+              class="border border-gray-[1.5px] p-4 rounded-lg font-light text-lg w-full mt-3"
+            ></textarea>
+            <button
+              type="button"
+              id="submit"
+              class="text-white bg-blue-500 hover:bg-blue-600 cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-lg px-3 py-2 text-center mt-1 w-[75%] md:w-[30%] lg:w-[30%] place-items-center"
+            >
+              Send your message
+            </button>
+          </form>
+        </div>
+        <div
+          class="flex flex-col mt-4 gap-6 md:p-8 md:flex md:flex-row md:gap-4 lg:flex lg:gap-3 lg:p-[60px]"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d700.7834782111933!2d3.0934266768213594!3d6.4925360543697686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b78a8c235bc41%3A0x64ae5a2879d5ffee!2sBeulah%20Comprehensive%20High%20School%20Morogbo!5e0!3m2!1sen!2sng!4v1746455779523!5m2!1sen!2sng"
+            style="border: 0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            height="350"
+            class="w-full md:w-[60%] lg:w-[80%] rounded-xl"
+            data-aos="fade-down"
+            data-aos-duration="1000"
+          ></iframe>
+
+          <div
+            class="flex flex-col justify-between w-full h-auto bg-[#f3f3f3] border-gray-[1.5px] rounded-xl md:w-[40%] lg:w-[30%]"
+            data-aos="fade-down"
+            data-aos-duration="1000"
+          >
+            <div class="flex flex-col gap-4 p-3">
+              <div>
+                <span class="font-light text-base">Address:</span>
+                <p class="text-lg font-semibold">
+                  No 1 GHIT street morogbo, Lagos
+                </p>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-light text-base">Email:</span>
+                <a href="mailto:contact@ghit.com" class="text-xl font-semibold"
+                  >contact@ghit.com</a
+                >
+              </div>
+              <div class="flex flex-col">
+                <span class="font-light text-base">Phone:</span>
+                <a href="tel:+234 801234780" class="text-xl font-semibold"
+                  >+234 801234780</a
+                >
+              </div>
+            </div>
+            <div class="flex flex-row justify-between p-2 gap-2">
+              <i
+                class="bi bi-whatsapp w-10 h-10 bg-white rounded-full flex justify-center items-center text-lg cursor-pointer hover:shadow-md"
+              ></i>
+              <i
+                class="bi bi-facebook w-10 h-10 bg-white rounded-full flex justify-center items-center text-lg cursor-pointer hover:shadow-md"
+              ></i>
+              <i
+                class="bi bi-twitter-x w-10 h-10 bg-white rounded-full flex justify-center items-center text-lg cursor-pointer hover:shadow-md"
+              ></i>
+              <i
+                class="bi bi-instagram w-10 h-10 bg-white rounded-full flex justify-center items-center text-lg cursor-pointer hover:shadow-md"
+              ></i>
+              <i
+                class="bi bi-youtube w-10 h-10 bg-white rounded-full flex justify-center items-center text-lg cursor-pointer hover:shadow-md"
+              ></i>
+              <i
+                class="bi bi-github w-10 h-10 bg-white rounded-full flex justify-center items-center text-lg cursor-pointer hover:shadow-md"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer
+      class="w-full bg-gray-950 p-3 text-white flex justify-center items-center flex-col gap-3 font-light"
+    >
+      <p>&copy; 2025 GHIT. All rights reserved.</p>
+      <div class="flex gap-5">
+        <a href="#">Privacy Policy</a> <a href="#">Terms of service</a>
+      </div>
+    </footer>
+    <!-- -- SCRIPTS -- -->
+    <script src="JS/index.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
