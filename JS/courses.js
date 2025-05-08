@@ -1,4 +1,4 @@
-const Elect = [
+const courses  = [
   {
     id: 1,
     name: "Analogue Electronics",
@@ -116,16 +116,16 @@ const Elect = [
 let courseContainer = ""; //create an empty container for a course item
 
 //loop through the items in the courses array and return a value for each course
-Elect.forEach((course) => {
+courses.forEach((course) => {
   //adds a div with the  courseName, Price, duration, stack and a button
   courseContainer += `<div
-            class="flex flex-col justify-between flex-wrap gap-4 w-full md:w-[48%] h-60 hover:shadow-xl lg:w-[32%] border-gray-500 border-[1.8px] p-4 rounded-lg mb-6"
+            class="flex flex-col justify-between flex-wrap gap-4 w-full md:w-[48%] h-auto md:h-70 lg:h-70  hover:shadow-xl lg:w-[32%] border-gray-500 border-[1.8px] p-4 rounded-lg mb-6"
             data-aos="fade-in"
             data-aos-duration="1000"
           >
           
             <div>
-              <h1 class="text-3xl font-bold mb-1.5">
+              <h1 class="text-2xl font-bold mb-1.5 lg:text-3xl">
                 ${course.name}
               </h1>
               <p class="text-lg font-light">
