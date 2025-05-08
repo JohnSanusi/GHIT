@@ -151,5 +151,5 @@ courses.forEach((course) => {
             </div>
           </div>`;
 
-  document.getElementById("container").innerHTML = courseContainer; // display menu items on page
+  document.getElementById("container").innerHTML = courseContainer; // display courses on page
 });
