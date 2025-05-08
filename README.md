@@ -12,7 +12,7 @@ I worked on the **frontend development**—structuring layouts, styling, and han
 - Tailwind CSS
 
 ## Deployment
-Live site: [Add your Netlify/GitHub Pages link here]
+Live site: https://ghit.vercel.app/ 
 
 ## Contact
 Want to collaborate or get access?  
