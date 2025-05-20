@@ -18,7 +18,7 @@ defineProps({
       </p>
     </div>
     <div>
-      <div class="flex justify-between items-baseline tracking-wider">
+      <div class="flex justify-between items-center tracking-wider">
         <h1 class="text-xl font-bold mb-1.5 lg:text-[1.3rem] font-[Arial]">
           {{ course.name }}
         </h1>
