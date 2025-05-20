@@ -11,6 +11,11 @@ defineProps({
     data-aos-duration="1000"
   >
     <div class="flex justify-between items-baseline">
+       <button
+        class="text-xl bg-gray-200 rounded-full flex justify-center items-center cursor-pointer hover:bg-gray-100 w-10 h-10"
+      >
+        <i class="pi pi-heart"></i>
+      </button>
       <p
         class="text-sm font-semibold tracking-wider font-Monsertat text-gray-500 mb-1 p-1.5 rounded-2xl flex justify-center items-center"
       >
@@ -22,9 +27,7 @@ defineProps({
         <h1 class="text-xl font-bold mb-1.5 lg:text-[1.3rem] font-[Arial]">
           {{ course.name }}
         </h1>
-        <p class="font-semibold text-base mr-1 lg:mr-5 tracking-wider">
-          ${{ course.price }}
-        </p>
+       
       </div>
       <p class="text-base text-gray-700 font-light tracking-wide">
         {{ course.stack }}
@@ -36,11 +39,9 @@ defineProps({
       </p>
     </div>
     <div class="flex flex-row justify-between items-center pr-3 mt-2">
-      <button
-        class="text-xl bg-gray-200 rounded-full flex justify-center items-center cursor-pointer hover:bg-gray-100 w-10 h-10"
-      >
-        <i class="pi pi-heart"></i>
-      </button>
+      <p class="font-semibold text-base mr-1 lg:mr-5 tracking-wider">
+          ${{ course.price }}
+        </p>
       <button
         class="cursor-pointer tracking-widest text-white bg-blue-700 rounded-md text-base font-medium w-22 hover:bg-blue-800 h-10 p-1 flex items-center justify-center"
       >
