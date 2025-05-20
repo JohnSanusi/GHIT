@@ -8,7 +8,7 @@ I worked on the **frontend development**—structuring layouts, styling, and han
 > Respect the grind. Steal and I bite.
 
 ## Tech Stack
-- HTML5, CSS3, JavaScript
+-Vue Js
 - Tailwind CSS
 
 ## Deployment
