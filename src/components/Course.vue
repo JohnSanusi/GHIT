@@ -35,7 +35,7 @@ defineProps({
         <i class="pi pi-users text-sm 5"> </i> Beginner to advanced
       </p>
     </div>
-    <div class="flex flex-row justify-between items-center pr-3">
+    <div class="flex flex-row justify-between items-center pr-3 mt-2">
       <button
         class="text-xl bg-gray-200 rounded-full flex justify-center items-center cursor-pointer hover:bg-gray-100 w-10 h-10"
       >
