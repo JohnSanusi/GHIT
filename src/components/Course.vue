@@ -11,16 +11,17 @@ defineProps({
     data-aos-duration="1000"
   >
     <div class="flex justify-between items-baseline">
-       <button
-        class="text-xl bg-gray-200 rounded-full flex justify-center items-center cursor-pointer hover:bg-gray-100 w-10 h-10"
-      >
-        <i class="pi pi-heart"></i>
-      </button>
+     
       <p
         class="text-sm font-semibold tracking-wider font-Monsertat text-gray-500 mb-1 p-1.5 rounded-2xl flex justify-center items-center"
       >
         <i class="pi pi-desktop text-sm mr-1"> </i>{{ course.duration }}
       </p>
+        <button
+        class="text-xl bg-gray-200 rounded-full flex justify-center items-center cursor-pointer hover:bg-gray-100 w-10 h-10"
+      >
+        <i class="pi pi-heart"></i>
+      </button>
     </div>
     <div>
       <div class="flex justify-between items-center tracking-wider">
