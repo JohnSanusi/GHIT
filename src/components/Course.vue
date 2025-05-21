@@ -5,7 +5,7 @@ const props = defineProps({
   course: Object,
 });
 
-let like = ref(true);
+let like = ref(false);
 
 const storageKey = `like${props.course.id}`;
 
