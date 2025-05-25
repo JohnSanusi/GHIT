@@ -1,9 +1,12 @@
 <script setup>
 import { defineProps, ref, onMounted, watch } from "vue";
 
-const props = defineProps({
-  course: Object,
-});
+const props = defineProps(["course"]);
+const emit = defineEmits(["add-to-cart"]);
+
+function handleAddToCart() {
+  emit("add-to-cart", props.course);
+}
 
 let like = ref(false);
 
@@ -62,11 +65,13 @@ const toggleLike = () => {
       <p class="font-semibold text-lg mr-1 lg:mr-5 tracking-wider">
         ${{ course.price }}
       </p>
-      <button
+      <RouterLink
+        to="/courses"
+        @click="handleAddToCart"
         class="cursor-pointer tracking-widest text-white bg-blue-700 rounded-md text-base font-medium w-22 hover:bg-blue-800 h-10 p-1 flex items-center justify-center"
       >
         Register
-      </button>
+      </RouterLink>
     </div>
   </div>
 </template>
