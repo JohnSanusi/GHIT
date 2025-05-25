@@ -1,8 +1,10 @@
 <script setup>
 import { ref, computed, reactive } from "vue";
+import { useToast } from "vue-toastification"; 
 import Back from "@/components/Back.vue";
 import Courses from "@/components/Courses.vue";
 
+const toast = useToast();
 // Cart state
 const cartItems = ref([]);
 
@@ -78,9 +80,9 @@ const processPayment = async () => {
     });
     paymentForm.paymentMethod = "card";
 
-    alert("Payment processed successfully!");
+    toast.success("payment proccessed successfully");
   } catch (error) {
-    alert("Payment failed. Please try again.");
+    toast.error("payment failed, please try again");
   } finally {
     isProcessing.value = false;
   }
