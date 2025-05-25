@@ -1,9 +1,12 @@
 <script setup>
-import { defineProps, ref, onMounted, watch } from "vue";
-import { RouterLink, useRouter } from "vue-router";
-const props = defineProps({
-  product: Object,
-});
+import { defineProps, ref, onMounted, watch, computed, reactive } from "vue";
+
+const props = defineProps(["product"]);
+const emit = defineEmits(["add-to-cart"]);
+
+function handleAddToCart() {
+  emit("add-to-cart", props.product);
+}
 
 let Plike = ref(false);
 
@@ -58,12 +61,12 @@ const toggleLike = () => {
       <p class="font-semibold text-lg mr-3 tracking-wider">
         ${{ product.price }}
       </p>
-      <a
-        :href="'/productcart/' + product.id"
+      <button
+        @click="handleAddToCart"
         class="cursor-pointer text-white tracking-wider bg-blue-700 rounded-md text-base font-medium w-22 hover:bg-blue-800 h-10 p-1 flex items-center justify-center"
       >
         Purchase
-      </a>
+      </button>
     </div>
   </div>
 </template>
