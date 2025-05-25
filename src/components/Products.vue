@@ -14,6 +14,12 @@ onMounted(async () => {
     console.log(error);
   }
 });
+
+const emit = defineEmits(["add-to-cart"]);
+
+function handleProductAddToCart(product) {
+  emit("add-to-cart", product);
+}
 </script>
 <template>
   <main class="mt-8 p-8">
@@ -25,6 +31,7 @@ onMounted(async () => {
         v-for="product in products"
         :key="product.id"
         :product="product"
+        @add-to-cart="handleProductAddToCart"
       />
     </div>
   </main>
