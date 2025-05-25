@@ -15,6 +15,12 @@ onMounted(async () => {
     console.log(error);
   }
 });
+
+const emit = defineEmits(["add-to-cart"]);
+
+function handleProductAddToCart(course) {
+  emit("add-to-cart", course);
+}
 </script>
 <template>
   <main class="mt-8 p-8">
@@ -26,6 +32,7 @@ onMounted(async () => {
         v-for="course in courses.slice(0, limit || courses.length)"
         :key="course.id"
         :course="course"
+        @add-to-cart="handleProductAddToCart"
       />
     </div>
   </main>
