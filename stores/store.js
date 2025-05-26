@@ -18,4 +18,5 @@ export const useMainStore = defineStore("main", {
       this.allItems = []
     }
   },
+   persist: true,
 });
