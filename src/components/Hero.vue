@@ -41,7 +41,7 @@ import { RouterLink } from "vue-router";
       <div class="flex gap-3">
         <RouterLink
           to="/courses"
-          class="cursor-pointer text-white bg-blue-500 rounded-lg text-base font-semibold w-50 h-12 p-1 flex justify-center items-center mt-2 hover:shadow-xl"
+          class="cursor-pointer text-white bg-blue-500 rounded-lg text-base font-semibold w-full md:w-50 lg:w-50 h-12 p-1 flex justify-center items-center mt-2 hover:shadow-xl"
           data-aos="fade-up"
           data-aos-duration="1000"
         >
