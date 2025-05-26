@@ -1,30 +1,19 @@
 <script setup>
-import { defineProps, ref, onMounted, watch } from "vue";
+import { defineProps, computed } from "vue";
 import { useMainStore } from "../../stores/store";
 import { useToast } from "vue-toastification";
+
 const props = defineProps({
   product: Object,
 });
+
 const store = useMainStore();
+function toggle() {
+  store.toggleLike(props.product.id);
+}
 
 const addProductToCart = (product) => {
   store.addProduct(product);
-};
-
-let Plike = ref(false);
-
-const storageKeyTwo = `like${props.product.id}`;
-
-onMounted(() => {
-  const saves = localStorage.getItem(storageKeyTwo);
-  if (saves) Plike.value = JSON.parse(saves);
-});
-
-watch(Plike, (vals) => {
-  localStorage.setItem(storageKeyTwo, JSON.stringify(vals));
-});
-const toggleLike = () => {
-  Plike.value = !Plike.value;
 };
 
 const toast = useToast();
@@ -46,12 +35,14 @@ const productAdded = () => {
         Available
       </p>
       <button
-        @click="toggleLike"
+        @click="toggle"
         class="text-xl bg-gray-200 rounded-full flex justify-center items-center cursor-pointer hover:bg-gray-100 w-10 h-10"
       >
         <i
           class="pi"
-          :class="Plike ? 'pi-heart' : 'pi-heart-fill text-blue-500'"
+          :class="
+            store.likes[product.id] ? 'pi-heart-fill text-blue-500' : 'pi-heart'
+          "
         ></i>
       </button>
     </div>
