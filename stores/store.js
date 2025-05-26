@@ -14,5 +14,8 @@ export const useMainStore = defineStore("main", {
     addCourse(course) {
       this.allItems.push({ ...course, type: "course" });
     },
+    clearAll(){
+      this.allItems = []
+    }
   },
 });
