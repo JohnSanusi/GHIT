@@ -46,7 +46,7 @@ let Links = [
           class="relative flex justify-center items-center text-gray-form mr-4"
         >
           <svg
-            class="mx-auto h-12 w-12"
+            class="mx-auto h-10 w-10"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
