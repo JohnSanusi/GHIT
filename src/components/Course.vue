@@ -17,21 +17,9 @@ const addedCourse = () => {
   toast.success("courses added to cart");
 };
 
-let like = ref(false);
-
-const storageKey = `like${props.course.id}`;
-
-onMounted(() => {
-  const saved = localStorage.getItem(storageKey);
-  if (saved) like.value = JSON.parse(saved);
-});
-
-watch(like, (val) => {
-  localStorage.setItem(storageKey, JSON.stringify(val));
-});
-const toggleLike = () => {
-  like.value = !like.value;
-};
+function toggle() {
+  store.toggleLike(props.course.id);
+}
 </script>
 <template>
   <div
@@ -46,12 +34,14 @@ const toggleLike = () => {
         <i class="pi pi-desktop text-sm mr-1"> </i>{{ course.duration }}
       </p>
       <button
-        @click="toggleLike"
+        @click="toggle"
         class="text-xl bg-gray-200 rounded-full flex justify-center items-center cursor-pointer hover:bg-gray-100 w-10 h-10"
       >
         <i
           class="pi"
-          :class="like ? 'pi-heart' : 'pi-heart-fill text-blue-500'"
+          :class="
+            store.likes[course.id] ? 'pi-heart-fill text-blue-500' : 'pi-heart'
+          "
         ></i>
       </button>
     </div>
