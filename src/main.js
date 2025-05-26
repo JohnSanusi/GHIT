@@ -8,12 +8,15 @@ import "aos/dist/aos.css";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import { createPinia } from "pinia";
+import { createPersistedState } from "pinia-plugin-persistedstate";
 
 const app = createApp(App);
 
 app.use(router);
-app.use(createPinia());
+const pinia = createPinia();
+pinia.use(createPersistedState);
 
+app.use(pinia);
 app.mount("#app");
 
 AOS.init();
