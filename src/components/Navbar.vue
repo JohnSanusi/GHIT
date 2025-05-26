@@ -79,7 +79,7 @@ let Links = [
 
         <button
           type="button"
-          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden bg-gray-100 outline-none ring-2 ring-gray-200  ring-gray-600"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden bg-gray-100 outline-none ring-2  ring-gray-600"
           aria-controls="navbar-sticky"
           aria-expanded="false"
           @click="toggleNavOpen"
