@@ -3,10 +3,12 @@ import { ref, computed, reactive } from "vue";
 import { useToast } from "vue-toastification";
 import { useMainStore } from "../../stores/store";
 import Back from "@/components/Back.vue";
+import { useRouter } from "vue-router";
 
 const store = useMainStore();
-
+const router = useRouter();
 const toast = useToast();
+
 // Cart state
 const cartItems = ref(store.allItems);
 
@@ -56,42 +58,74 @@ const updateQuantity = (itemId, newQuantity) => {
     item.quantity = newQuantity;
   }
 };
+const showDialog = ref(false);
+const selectedItemId = ref(null);
 
-const removeItem = (itemId) => {
-  const index = cartItems.value.findIndex((item) => item.id === itemId);
+const askToDelete = (itemId) => {
+  selectedItemId.value = itemId;
+  showDialog.value = true;
+};
+const confirmDelete = () => {
+  const index = cartItems.value.findIndex(
+    (item) => item.id === selectedItemId.value
+  );
   if (index > -1) {
     cartItems.value.splice(index, 1);
   }
+  showDialog.value = false;
+  selectedItemId.value = null;
 };
 
+const cancelDelete = () => {
+  showDialog.value = false;
+  selectedItemId.value = null;
+};
 // Payment processing
+const show = ref(false);
 const processPayment = async () => {
-  if (cartItems.value.length === 0) return;
+  if (store.isLoggedIn) {
+    if (cartItems.value.length === 0) return;
 
-  isProcessing.value = true;
+    isProcessing.value = true;
 
-  try {
-    // Simulate payment processing
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      // Simulate payment processing
+      await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    // Clear cart after successful payment
-   store.clearAll()
+      // Clear cart after successful payment
+      store.clearAll();
+      router.go(0);
 
-    // Reset form
-    Object.keys(paymentForm).forEach((key) => {
-      if (typeof paymentForm[key] === "string") {
-        paymentForm[key] = "";
-      }
-    });
-    paymentForm.paymentMethod = "card";
+      // Reset form
+      Object.keys(paymentForm).forEach((key) => {
+        if (typeof paymentForm[key] === "string") {
+          paymentForm[key] = "";
+        }
+      });
+      paymentForm.paymentMethod = "card";
 
-    toast.success("payment proccessed successfully");
-  } catch (error) {
-    toast.error("payment failed, please try again");
-  } finally {
-    isProcessing.value = false;
+      toast.success("payment proccessed successfully");
+    } catch (error) {
+      toast.error("payment failed, please try again");
+    } finally {
+      isProcessing.value = false;
+    }
+  } else {
+    show.value = true;
   }
 };
+function goToLogin() {
+  show.value = false;
+  setTimeout(() => {
+    router.push({ name: "login" });
+  }, 1000);
+}
+function goToSignUp() {
+  show.value = false;
+  setTimeout(() => {
+    router.push({ name: "signup" });
+  }, 1000);
+}
 </script>
 <template>
   <Back />
@@ -184,7 +218,7 @@ const processPayment = async () => {
               </div>
 
               <button
-                @click="removeItem(item.id)"
+                @click="askToDelete(item.id)"
                 class="text-red-500 hover:text-red-700 transition-colors"
               >
                 <svg
@@ -330,19 +364,7 @@ const processPayment = async () => {
                     class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
                   />
                   <label for="paypal" class="flex items-center space-x-2">
-                    <svg
-                      class="w-6 h-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
+                    <i class="pi pi-paypal text-2xl font-light"></i>
                     <span>PayPal</span>
                   </label>
                 </div>
@@ -480,6 +502,66 @@ const processPayment = async () => {
             </div>
           </form>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    v-if="showDialog"
+    class="flex justify-center items-center bg-black/20 fixed top-0 left-0 min-w-full min-h-full"
+  >
+    <div
+      class="bg-white shadow-lg rounded-lg w-[90%] md:w-[60%] lg:w-[30%] h-35 p-3 flex flex-col justify-between"
+    >
+      <div>
+        <h1 class="text-xl font-semibold tracking-wide mb-2">Are Your Sure?</h1>
+        <p>This action cannot be undone.</p>
+      </div>
+
+      <div class="flex flex-row gap-3 justify-end">
+        <button
+          @click="cancelDelete"
+          class="text-black flex tracking-widest border border-black-[1.8px] font-medium rounded-lg text-sm px-3 py-1.5 text-center cursor-pointer hover:shadow-xl"
+        >
+          Cancel
+        </button>
+        <button
+          @click="confirmDelete"
+          class="text-white bg-red-500 flex tracking-widest border border-black-[1.8px] font-medium rounded-lg text-sm px-3 py-1.5 text-center cursor-pointer hover:bg-red-400"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    v-if="show"
+    class="flex justify-center items-center bg-black/20 fixed top-0 left-0 min-w-full min-h-full"
+  >
+    <div
+      class="bg-white shadow-lg rounded-lg w-[90%] md:w-[60%] lg:w-[30%] h-35 p-3 flex flex-col justify-between"
+    >
+      <div>
+        <h1 class="text-xl font-semibold tracking-wide mb-2">Invalid User</h1>
+        <p>You must be Logged In to continue</p>
+      </div>
+
+      <div class="flex flex-row gap-3 justify-end">
+        <button
+          to="/login"
+          @click="goToLogin"
+          class="text-black flex tracking-widest border border-black-[1.8px] font-medium rounded-lg text-sm px-3 py-1.5 text-center cursor-pointer hover:shadow-xl"
+        >
+          Login
+        </button>
+        <button
+          @click="goToSignUp"
+          to="/signup"
+          class="text-white bg-blue-500 flex tracking-widest border border-black-[1.8px] font-medium rounded-lg text-sm px-3 py-1.5 text-center cursor-pointer hover:bg-blue-700"
+        >
+          SignUp
+        </button>
       </div>
     </div>
   </div>
