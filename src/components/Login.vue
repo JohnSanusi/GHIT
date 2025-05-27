@@ -1,42 +1,52 @@
 <script setup>
 import { RouterLink, useRouter } from "vue-router";
 import { useToast } from "vue-toastification";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
+import { useMainStore } from "../../stores/store";
 const router = useRouter();
-const form = reactive({
-  email: "",
-  password: "",
-});
 
+const store = useMainStore();
+const email = ref("");
+const password = ref("");
+const error = ref("");
 const toast = useToast();
-const savedName = localStorage.getItem("name");
-const savedEmail = localStorage.getItem("email");
-const savedPassword = localStorage.getItem("password");
-const handleSubmit = () => {
-  if (form.email === "" || form.password === "") {
-    toast.warning("Please Fill in all Inputs");
-  } else if (form.email !== savedEmail || form.password !== savedPassword) {
-    toast.error("Invalid user, Check email and password");
-  } else {
-    toast.success(`Login successful, Welcome ${savedName}`);
-    form.email = "";
-    form.password = "";
 
-    setTimeout(() => {
-      router.push({ name: "home" });
-    }, 6000);
+const handleLogin = () => {
+  if (email.value === "" || password.value === "") {
+    toast.warning("Please Fill in all Inputs");
+  } else {
+    try {
+      store.login({ email: email.value, password: password.value });
+      error.value = "";
+      toast.success(`Login successful`);
+      setTimeout(() => {
+        router.push({ name: "home" });
+      }, 4000);
+    } catch (err) {
+      toast.error(err.message);
+      setTimeout(() => {
+        router.push({ name: "signup" });
+      }, 5000);
+    }
+
+    email.value = "";
+    password.value = "";
+
+    /*   setTimeout(() => {
+    
+  }, 3000); */
   }
 };
 </script>
 <template>
-  <div class="flex justify-center items-center mt-32 flex-col gap-3">
+  <div class="flex justify-center items-center mt-32 flex-col">
     <form
-      @submit.prevent="handleSubmit"
+      @submit.prevent="handleLogin"
       id="login"
-      class="w-[90%] md:w-[70%] lg:w-[35%] shadow-md rounded-xl h-auto p-4"
+      class="w-[90%] md:w-[70%] lg:w-[35%] h-auto px-4"
     >
       <input
-        v-model="form.email"
+        v-model="email"
         type="email"
         name="login-email"
         id="login-email"
@@ -44,7 +54,7 @@ const handleSubmit = () => {
         class="w-full p-2 text-lgfont-light border border-black-[1.3px] rounded-xl mb-4"
       />
       <input
-        v-model="form.password"
+        v-model="password"
         type="password"
         name="login-password"
         id="login-password"
@@ -58,12 +68,40 @@ const handleSubmit = () => {
       >
         Login
       </button>
+    </form>
+    <div
+      class="flex flex-row justify-center items-center gap-2 w-[90%] md:w-[70%] lg:w-[30%]"
+    >
+      <hr
+        class="w-[40%] md:w-[90%] lg:w-full text-gray-500 font-extralight mt-1"
+      />
+      <p class="text-2xl tracking-normal">or</p>
+      <hr
+        class="w-[40%] md:w-[90%] lg:w-full text-gray-500 font-extralight mt-1"
+      />
+    </div>
+    <div
+      class="flex flex-col md:flex-row lg:flex-row gap-3 justify-center items-center mt-4 w-[90%] md:w-[70%] lg:w-[45%]"
+    >
+      <button
+        class="w-[90%] md:w-65 lg:w-50 h-12 border border-black-[1.4px] rounded-lg text-lg font-bold cursor-pointer hover:bg-black hover:text-white"
+      >
+        <i class="pi pi-google mr-0.5 font-extrabold"></i>Google
+      </button>
+      <button
+        class="w-[90%] md:w-65 lg:w-50 h-12 border border-black-[1.4px] rounded-lg text-lg font-bold cursor-pointer hover:bg-black hover:text-white"
+      >
+        <i class="pi pi-apple mr-0.5 font-extrabold"></i>Apple
+      </button>
+    </div>
+
+    <div class="mt-3">
       <p class="text-center text-lg font-light">
         No account?
         <RouterLink to="/signup" class="text-blue-500 font-underline"
           >SignUp</RouterLink
         >
       </p>
-    </form>
+    </div>
   </div>
 </template>
