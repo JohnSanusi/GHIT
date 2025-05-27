@@ -66,16 +66,32 @@ let Links = [
         </RouterLink>
         <RouterLink
           to="/login"
+          v-if="!store.currentUser"
           class="text-black hidden tracking-widest border border-black-[1.8px] font-medium rounded-lg text-sm px-4 py-3 text-center mr-3 cursor-pointer md:flex lg:flex hover:shadow-xl"
         >
           Login
         </RouterLink>
         <RouterLink
-          to="signup"
-          class="text-white hidden tracking-widest bg-blue-500 hover:bg-blue-600 cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 md:flex lg:flex font-medium rounded-lg text-sm px-4 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          v-if="!store.currentUser"
+          to="/signup"
+          class="text-white hidden tracking-widest bg-blue-500 hover:bg-blue-600 cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 md:flex lg:flex font-medium rounded-lg text-sm px-4 py-3 text-center"
         >
           Get Started
         </RouterLink>
+        <button
+          v-if="store.currentUser"
+          @click="store.logOut"
+          class="text-white hidden tracking-widest bg-red-500 hover:bg-red-600 cursor-pointer focus:ring-4 focus:outline-none focus:ring-red-300 md:flex lg:flex font-medium rounded-lg text-sm px-4 py-3 text-center"
+        >
+          LogOut
+        </button>
+        <button
+          v-if="store.currentUser"
+          @click="store.logOut"
+          class="text-white bg-red-500 p-3 flex tracking-widest cursor-pointer md:hidden lg:hidden font-medium rounded-lg text-lg text-center"
+        >
+          <i class="pi pi-sign-out"></i>
+        </button>
 
         <button
           type="button"
@@ -122,5 +138,5 @@ let Links = [
       </div>
     </div>
   </nav>
-  
+
 </template>
