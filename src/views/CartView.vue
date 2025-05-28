@@ -381,7 +381,7 @@ function goToSignUp() {
                 >
                 <input
                   v-model="paymentForm.cardNumber"
-                  type="number"
+                  type="text"
                   maxlength="16"
                   inputmode="numeric
                   id="cardNumber"
@@ -399,7 +399,7 @@ function goToSignUp() {
                   >
                   <input
                     v-model="paymentForm.expiryDate"
-                    type="number"
+                    type="text"
                     maxlength="4"
                     inputmode="numeric"
                     
@@ -417,7 +417,7 @@ function goToSignUp() {
                   >
                   <input
                     v-model="paymentForm.cvv"
-                    type="number"
+                    type="text"
                     maxlength="3"
                     inputmode="numeric"
                     
