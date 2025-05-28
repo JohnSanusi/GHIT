@@ -18,9 +18,9 @@ const paymentForm = reactive({
   lastName: "",
   email: "",
   paymentMethod: "card",
-  cardNumber:,
-  expiryDate: ,
-  cvv:,
+  cardNumber: "",
+  expiryDate: "" ,
+  cvv: "",
   address: "",
   city: "",
   state: "",
@@ -85,11 +85,8 @@ const cancelDelete = () => {
 const show = ref(false);
 const processPayment = async () => {
   if (store.isLoggedIn) {
-    if (cartItems.value.length === 0) return;
-
+    if (cartItems.value.length === 0) return
     isProcessing.value = true;
-
-
       // Simulate payment processing
      try{
     await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -106,7 +103,7 @@ const processPayment = async () => {
       paymentForm.paymentMethod = "card";
 
       toast.success("payment proccessed successfully");
-     }  catch (error) {
+     }catch (error) {
       toast.error("payment failed, please try again");
     } finally {
       isProcessing.value = false;
