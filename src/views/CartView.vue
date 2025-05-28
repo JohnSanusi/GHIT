@@ -92,7 +92,8 @@ const processPayment = async () => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
       // Clear cart after successful payment
-      store.clearAll()
+      store.clearAll();
+       router.push({ name: "home" })
 
       // Reset form
       Object.keys(paymentForm).forEach((key) => {
