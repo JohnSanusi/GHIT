@@ -27,6 +27,7 @@ const paymentForm = reactive({
   zipCode: "",
 });
 
+
 const isProcessing = ref(false);
 
 // Computed properties
@@ -380,9 +381,10 @@ function goToSignUp() {
                 >
                 <input
                   v-model="paymentForm.cardNumber"
-                  type="number"
-                  min="1"
-                  max="16"
+                  type="text"
+                  maxlength="16"
+                  inputmode="numeric"
+                  pattern="[0-9]"
                   id="cardNumber"
                   placeholder="1234 5678 9012 3456"
                   required
@@ -398,9 +400,10 @@ function goToSignUp() {
                   >
                   <input
                     v-model="paymentForm.expiryDate"
-                    type="number"
-                    min="1"
-                    max="4"
+                    type="text"
+                    maxlength="4"
+                    inputmode="numeric"
+                    pattern="[0-9]"
                     id="expiryDate"
                     placeholder="MM/YY"
                     required
@@ -415,9 +418,10 @@ function goToSignUp() {
                   >
                   <input
                     v-model="paymentForm.cvv"
-                    type="number"
-                    min="1"
-                    max="3"
+                    type="text"
+                    maxlength="3"
+                    inputmode="numeric"
+                    pattern="[0-9]"
                     id="cvv"
                     placeholder="123"
                     required
