@@ -2,9 +2,10 @@
 import { RouterLink } from "vue-router";
 import { ref, computed } from "vue";
 import { useMainStore } from "../../stores/store";
+import { useToast } from "vue-toastification";  
 
 const store = useMainStore();
-
+const toast = useToast();
 let navOpen = ref(false);
 
 const toggleNavOpen = computed(() => {
@@ -80,14 +81,18 @@ let Links = [
         </RouterLink>
         <button
           v-if="store.currentUser"
-          @click="store.logOut"
+          @click="store.logOut;
+          toast.success("User logged out ")
+          "
           class="text-white hidden tracking-widest bg-red-500 hover:bg-red-600 cursor-pointer focus:ring-4 focus:outline-none focus:ring-red-300 md:flex lg:flex font-medium rounded-lg text-sm px-4 py-3 text-center"
         >
           LogOut
         </button>
         <button
           v-if="store.currentUser"
-          @click="store.logOut"
+          @click="store.logOut;
+          toast.success("User logged out ")
+          "
           class="text-white bg-red-500 p-3 flex tracking-widest cursor-pointer md:hidden lg:hidden font-medium rounded-lg text-lg text-center"
         >
           <i class="pi pi-sign-out"></i>
