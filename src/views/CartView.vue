@@ -89,7 +89,7 @@ const processPayment = async () => {
 
     isProcessing.value = true;
 
-    try {
+
       // Simulate payment processing
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
@@ -105,11 +105,6 @@ const processPayment = async () => {
       paymentForm.paymentMethod = "card";
 
       toast.success("payment proccessed successfully");
-    } catch (error) {
-      toast.error("payment failed, please try again");
-    } finally {
-      isProcessing.value = false;
-    }
   } else {
     show.value = true;
   }
@@ -382,6 +377,8 @@ function goToSignUp() {
                 <input
                   v-model="paymentForm.cardNumber"
                   type="text"
+                  maxlength="16"
+                  inputmode="numeric"
                   id="cardNumber"
                   placeholder="1234 5678 9012 3456"
                   required
@@ -398,7 +395,8 @@ function goToSignUp() {
                   <input
                     v-model="paymentForm.expiryDate"
                     type="text"
-                    
+                    maxlength="4"
+                   inputmode="numeric"
                     
                     id="expiryDate"
                     placeholder="MM/YY"
@@ -416,7 +414,8 @@ function goToSignUp() {
                     v-model="paymentForm.cvv"
                     type="text"
                     
-                    
+                    maxlength="3"
+                  inputmode="numeric"
                     
                     id="cvv"
                     placeholder="123"
