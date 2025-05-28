@@ -93,8 +93,7 @@ const processPayment = async () => {
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
       // Clear cart after successful payment
-      store.clearAll();
-      router.go(0);
+      store.allItems.$reset();
 
       // Reset form
       Object.keys(paymentForm).forEach((key) => {
@@ -381,7 +380,9 @@ function goToSignUp() {
                 >
                 <input
                   v-model="paymentForm.cardNumber"
-                  type="text"
+                  type="number"
+                  min="1"
+                  max="16"
                   id="cardNumber"
                   placeholder="1234 5678 9012 3456"
                   required
@@ -397,7 +398,9 @@ function goToSignUp() {
                   >
                   <input
                     v-model="paymentForm.expiryDate"
-                    type="text"
+                    type="number"
+                    min="1"
+                    max="4"
                     id="expiryDate"
                     placeholder="MM/YY"
                     required
@@ -412,7 +415,9 @@ function goToSignUp() {
                   >
                   <input
                     v-model="paymentForm.cvv"
-                    type="text"
+                    type="number"
+                    min="1"
+                    max="3"
                     id="cvv"
                     placeholder="123"
                     required
