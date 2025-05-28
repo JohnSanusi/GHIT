@@ -383,8 +383,7 @@ function goToSignUp() {
                   v-model="paymentForm.cardNumber"
                   type="text"
                   maxlength="16"
-                  inputmode="numeric"
-                  pattern="[0-9]"
+                  inputmode="numeric
                   id="cardNumber"
                   placeholder="1234 5678 9012 3456"
                   required
