@@ -93,7 +93,7 @@ import { RouterLink } from "vue-router";
           laudantium nisi
         </p>
         <RouterLink
-          to="/"
+          to="/repairs"
           class="text-white bg-blue-500 hover:bg-blue-600 cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-1 w-[40%]"
         >
           Visit <i class="pi pi-angle-right text-lg"></i>
