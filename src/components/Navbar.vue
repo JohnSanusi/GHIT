@@ -2,10 +2,11 @@
 import { RouterLink } from "vue-router";
 import { ref, computed } from "vue";
 import { useMainStore } from "../../stores/store";
-import { useToast } from "vue-toastification";  
+import { useToast } from "vue-toastification";
 
 const store = useMainStore();
 const toast = useToast();
+
 let navOpen = ref(false);
 
 const toggleNavOpen = computed(() => {
@@ -24,6 +25,21 @@ let Links = [
   { name: "Services", to: "/#services" },
   { name: "Contact", to: "/#contact" },
 ];
+
+const showDialog = ref(false);
+
+const HandlelogOut = () => {
+  showDialog.value = true;
+};
+const logOut = () => {
+  store.logOut();
+  toast.success("Account logged Out");
+  showDialog.value = false;
+};
+
+const cancelLogOut = () => {
+  showDialog.value = false;
+};
 </script>
 <template>
   <nav
@@ -81,18 +97,14 @@ let Links = [
         </RouterLink>
         <button
           v-if="store.currentUser"
-          @click="store.logOut;
-          toast.success("User logged out ")
-          "
+          @click="HandlelogOut"
           class="text-white hidden tracking-widest bg-red-500 hover:bg-red-600 cursor-pointer focus:ring-4 focus:outline-none focus:ring-red-300 md:flex lg:flex font-medium rounded-lg text-sm px-4 py-3 text-center"
         >
           LogOut
         </button>
         <button
           v-if="store.currentUser"
-          @click="store.logOut;
-          toast.success("User logged out ")
-          "
+          @click="HandlelogOut"
           class="text-white bg-red-500 p-3 flex tracking-widest cursor-pointer md:hidden lg:hidden font-medium rounded-lg text-lg text-center"
         >
           <i class="pi pi-sign-out"></i>
@@ -144,4 +156,31 @@ let Links = [
     </div>
   </nav>
 
+  <div
+    v-if="showDialog"
+    class="flex justify-center items-center bg-black/20 fixed top-0 left-0 min-w-full min-h-full z-10"
+  >
+    <div
+      class="bg-white shadow-lg rounded-lg w-[90%] md:w-[60%] lg:w-[30%] h-35 p-3 flex flex-col justify-between"
+    >
+      <div>
+        <h1 class="text-xl font-semibold tracking-wide mb-2">Are Your Sure?</h1>
+      </div>
+
+      <div class="flex flex-row gap-3 justify-end">
+        <button
+          @click="cancelLogOut"
+          class="text-black flex tracking-widest border border-black-[1.8px] font-medium rounded-lg text-sm px-3 py-1.5 text-center cursor-pointer hover:shadow-xl"
+        >
+          Cancel
+        </button>
+        <button
+          @click="logOut"
+          class="text-white bg-red-500 flex tracking-widest border border-black-[1.8px] font-medium rounded-lg text-sm px-3 py-1.5 text-center cursor-pointer hover:bg-red-400"
+        >
+          Log Out
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
