@@ -41,7 +41,7 @@ const handleSubmit = () => {
 };
 </script>
 <template>
-  <section id="contact" class="flex flex-col gap-4 p-8">
+  <section id="contact" class="flex flex-col gap-4 p-8 mt-10">
     <div
       class="flex justify-center items-center flex-col"
       data-aos="fade-down"
@@ -88,6 +88,7 @@ const handleSubmit = () => {
           type="text"
           inputmode="numeric"
           name="Phone Number"
+          limit="11"
           id="Number"
           placeholder="Phone Number"
           class="border border-gray-[1.5px] p-4 rounded-lg font-light text-lg w-full mt-3"
