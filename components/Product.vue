@@ -15,7 +15,7 @@ const addProductToCart = (product) => {
   store.addProduct(product);
 };
 
-const toast = useToast();
+const toast = inject("toast");
 
 const productAdded = () => {
   toast.success("product added to cart");

@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from "vue-router";
-import { useToast } from "vue-toastification";
+
 import { ref } from "vue";
 import { useMainStore } from "../stores/store";
 const store = useMainStore();
@@ -12,7 +12,7 @@ const email = ref("");
 const password = ref("");
 const error = ref("");
 
-const toast = useToast();
+const toast = inject("toast");
 
 const handleSignUp = () => {
   if (name.value === "" || email.value === "" || password.value === "") {

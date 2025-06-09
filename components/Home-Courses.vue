@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { RouterLink } from "vue-router";
+
 import Course from "./Course.vue";
 
 import axios from "axios";
@@ -56,12 +56,12 @@ onMounted(async () => {
       data-aos="fade-up"
       data-aos-duration="1000"
     >
-      <RouterLink
+      <NuxtLink
         to="/courses"
         class="cursor-pointer text-black border-gray-500 border-[1.8px] rounded-md text-lg font-medium w-50 h-15 p-1 flex items-center justify-center hover:shadow-xl"
       >
         View All Courses <i class="pi pi-arrow-right text-lg ml-2 mt-0.5"></i>
-      </RouterLink>
+      </NuxtLink>
     </div>
   </section>
 </template>

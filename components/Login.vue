@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from "vue-router";
-import { useToast } from "vue-toastification";
+
 import { reactive, ref } from "vue";
 import { useMainStore } from "../stores/store";
 const router = useRouter();
@@ -9,7 +9,7 @@ const store = useMainStore();
 const email = ref("");
 const password = ref("");
 const error = ref("");
-const toast = useToast();
+const toast = inject("toast");
 
 const handleLogin = () => {
   if (email.value === "" || password.value === "") {

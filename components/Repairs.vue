@@ -9,7 +9,7 @@ const form = reactive({
   description: "",
 });
 
-const toast = useToast();
+const toast = inject("toast");
 
 const handleSubmit = () => {
   const description = {

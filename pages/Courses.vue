@@ -1,13 +1,8 @@
 <script setup>
-definePageMeta({
-  layout: "minimal",
-});
-
-import { useToast } from "vue-toastification";
-
-const toast = useToast();
+const toast = inject("toast");
 </script>
 
 <template>
+  <Back />
   <Courses />
 </template>

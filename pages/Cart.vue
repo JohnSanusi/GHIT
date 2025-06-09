@@ -1,11 +1,11 @@
 <script setup>
 import { ref, computed } from "vue";
-import { useToast } from "vue-toastification";
+
 import { useMainStore } from "../stores/store";
 
 const store = useMainStore();
 const router = useRouter();
-const toast = useToast();
+const toast = inject("toast");
 
 // Sample cart items with type field
 const cartItems = ref(store.allItems);
