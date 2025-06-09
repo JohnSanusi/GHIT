@@ -26,6 +26,6 @@ export default defineNuxtConfig({
   ssr: true,
   modules: [],
   build: {
-    transpile: ["vue-toastification"],
+    transpile: ["vue-toastification", "pinia-plugin-persistedstate"],
   },
 });
