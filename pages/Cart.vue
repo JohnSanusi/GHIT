@@ -284,6 +284,19 @@ function goToSignUp() {
             <div class="bg-white rounded-lg shadow-md p-6">
               <h3 class="text-lg font-semibold mb-4">Payment Information</h3>
 
+              <h4 class="text-base font-semibold mb-1">
+                Account Name:
+                <span class="text-base font-light">GHIT SCHOOLS</span>
+              </h4>
+              <h4 class="text-base font-semibold mb-1">
+                Bank Name:
+                <span class="text-base font-light">GT Bank</span>
+              </h4>
+              <h4 class="text-base font-semibold mb-1">
+                Account Number:
+                <span class="text-base font-light">0023459493</span>
+              </h4>
+
               <form @submit.prevent="processPayment" class="space-y-4">
                 <div>
                   <label

@@ -1,6 +1,4 @@
-<script setup>
-const toast = useToast();
-</script>
+<script setup></script>
 
 <template>
   <Back />
