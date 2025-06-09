@@ -1,10 +1,10 @@
 <script setup>
 import { ref, computed } from "vue";
 import { useMainStore } from "../stores/store";
-
+import { useToast } from "vue-toastification";
 
 const store = useMainStore();
-const toast = inject("toast");
+const toast = useToast();
 
 let navOpen = ref(false);
 

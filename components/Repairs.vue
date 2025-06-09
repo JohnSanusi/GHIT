@@ -1,5 +1,6 @@
 <script setup>
 import { reactive } from "vue";
+import { useToast } from "vue-toastification";
 
 const form = reactive({
   name: "",
@@ -9,7 +10,7 @@ const form = reactive({
   description: "",
 });
 
-const toast = inject("toast");
+const toast = useToast();
 
 const handleSubmit = () => {
   const description = {

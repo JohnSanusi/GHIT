@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps, ref, onMounted, watch } from "vue";
 import { useMainStore } from "../stores/store";
+import { useToast } from "vue-toastification";
 
 const props = defineProps({
   course: Object,
@@ -11,7 +12,7 @@ const addCourseToCart = (course) => {
   store.addCourse(course);
 };
 
-const toast = inject("toast");
+const toast = useToast();
 
 const addedCourse = () => {
   toast.success("courses added to cart");

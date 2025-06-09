@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps, computed } from "vue";
 import { useMainStore } from "../stores/store";
+import { useToast } from "vue-toastification";
 
 const props = defineProps({
   product: Object,
@@ -15,7 +16,7 @@ const addProductToCart = (product) => {
   store.addProduct(product);
 };
 
-const toast = inject("toast");
+const toast = useToast();
 
 const productAdded = () => {
   toast.success("product added to cart");

@@ -1,5 +1,5 @@
 <script setup>
-/* const toast = inject("toast"); */
+const toast = useToast();
 </script>
 
 <template>
