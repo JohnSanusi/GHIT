@@ -17,7 +17,7 @@ const handleSubmit = () => {
     email: form.email,
     number: form.number,
     issue: form.issue,
-    descirption: form.description,
+    description: form.description,
   };
 
   if (
