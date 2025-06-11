@@ -343,9 +343,9 @@ function goToSignUp() {
                     Shipping Address
                   </label>
                   <input
-                    id="text"
+                    id="address"
                     v-model="paymentInfo.location"
-                    type="email"
+                    type="text"
                     required
                     class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Enter your shipping address"
