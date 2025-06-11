@@ -57,7 +57,6 @@ const canSubmit = computed(() => {
   const hasRequiredFields =
     paymentInfo.value.fullName &&
     paymentInfo.value.email &&
-    paymentInfo.value.location &&
     paymentInfo.value.receipt;
 
   const hasShippingIfNeeded = !hasProducts.value || selectedLocation.value;
