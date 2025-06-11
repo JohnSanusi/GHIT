@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import { useToast } from "vue-toastification";
 import { useMainStore } from "../stores/store";
+import axios from "axios";
 
 const store = useMainStore();
 const router = useRouter();
@@ -111,20 +112,43 @@ const processPayment = async () => {
     if (!canSubmit.value) return;
 
     try {
-      // Here you would typically send the order data to your backend
-      const orderData = {
-        items: cartItems.value,
-        subtotal: subtotal.value,
-        shippingFee: shippingFee.value,
-        total: total.value,
-        shippingLocation: selectedLocation.value,
-        paymentInfo: {
+      // To Admin's dashboard panel
+      const adminData = new FormData();
+      adminData.append("items", JSON.stringify(cartItems.value));
+      adminData.append("subtotal", total.value);
+      adminData.append("shipping fee", shippingFee.value);
+      adminData.append("shippingLocation", selectedLocation.value);
+      adminData.append(
+        "paymentInfo",
+        JSON.stringify({
           fullName: paymentInfo.value.fullName,
           email: paymentInfo.value.email,
           location: paymentInfo.value.location,
-          receipt: paymentInfo.value.receipt,
-        },
-      };
+        })
+      );
+      adminData.append("reciept", paymentInfo.value.receipt);
+
+      // To payment endpoint
+      const paymentData = new FormData();
+      paymentData.append(
+        "paymentInfo",
+        JSON.stringify({
+          fullName: paymentInfo.value.fullName,
+          email: paymentInfo.value.email,
+          location: paymentInfo.value.location,
+        })
+      );
+      paymentData.append("reciept", paymentInfo.value.receipt);
+
+      await axios.post(
+        "https://ghit-backend.onrender.com/api/payment",
+        paymentData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
       toast.success("Order submitted successfully");
 
@@ -137,10 +161,13 @@ const processPayment = async () => {
       paymentInfo.value = {
         fullName: "",
         email: "",
+        location: "",
         receipt: null,
       };
     } catch (error) {
-      toast.error("payment failed, please try again");
+      toast.error(
+        "Submission failed" + (error.response?.data?.error || error.message)
+      );
     }
   } else {
     show.value = true;
