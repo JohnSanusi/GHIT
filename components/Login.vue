@@ -23,7 +23,7 @@ const handleLogin = async () => {
         router.push("/");
       }, 3000);
     } catch (err) {
-      toast.error(err.message);
+      toast.error("user does not exist");
       setTimeout(() => {
         router.push("/signup");
       }, 3000);

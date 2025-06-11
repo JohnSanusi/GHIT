@@ -7,12 +7,11 @@ export const useMainStore = defineStore("main", {
     allItems: [],
     likes: {},
     user: null,
-    currentUser: null,
   }),
   getters: {
     allItemsCount: (state) => state.allItems?.length || 0,
-    isLoggedIn: (state) => !!state.currentUser,
-    getUserName: (state) => state.currentUser?.name || ",",
+    isLoggedIn: (state) => !!state.user,
+    getUserName: (state) => state.user?.name || ",",
   },
   actions: {
     addProduct(product) {
@@ -42,7 +41,7 @@ export const useMainStore = defineStore("main", {
         }
       );
 
-      this.user = data.user;
+      this.user = data.data.user;
     },
 
     async login(payload) {
@@ -54,9 +53,7 @@ export const useMainStore = defineStore("main", {
         }
       );
 
-      this.user = data.user;
-
-      this.currentUser = data.user;
+      this.user = data.data.user;
     },
     async logOut() {
       await axios.post(
@@ -67,7 +64,6 @@ export const useMainStore = defineStore("main", {
         }
       );
       this.user = null;
-      this.currentUser = null;
     },
   },
 

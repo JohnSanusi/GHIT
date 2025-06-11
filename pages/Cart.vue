@@ -24,6 +24,7 @@ const selectedLocation = ref("");
 const paymentInfo = ref({
   fullName: "",
   email: "",
+  location: "",
   receipt: null,
 });
 
@@ -56,6 +57,7 @@ const canSubmit = computed(() => {
   const hasRequiredFields =
     paymentInfo.value.fullName &&
     paymentInfo.value.email &&
+    paymentInfo.value.location &&
     paymentInfo.value.receipt;
 
   const hasShippingIfNeeded = !hasProducts.value || selectedLocation.value;
@@ -106,7 +108,7 @@ const cancelDelete = () => {
 const show = ref(false);
 
 const processPayment = async () => {
-  if (store.isLoggedIn) {
+  if (store.user) {
     if (!canSubmit.value) return;
 
     try {
@@ -120,6 +122,7 @@ const processPayment = async () => {
         paymentInfo: {
           fullName: paymentInfo.value.fullName,
           email: paymentInfo.value.email,
+          location: paymentInfo.value.location,
           receipt: paymentInfo.value.receipt,
         },
       };
@@ -330,6 +333,22 @@ function goToSignUp() {
                     required
                     class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Enter your email address"
+                  />
+                </div>
+                <div v-if="hasProducts">
+                  <label
+                    for="location"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Shipping Address
+                  </label>
+                  <input
+                    id="text"
+                    v-model="paymentInfo.location"
+                    type="email"
+                    required
+                    class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Enter your shipping address"
                   />
                 </div>
 

@@ -19,7 +19,7 @@ const handleSignUp = async () => {
     toast.warning("Please Fill in all Inputs");
   } else {
     try {
-    await  store.signUp({
+      await store.signUp({
         name: name.value,
         email: email.value,
         password: password.value,
@@ -30,7 +30,7 @@ const handleSignUp = async () => {
         router.push("/login");
       }, 3000);
     } catch (err) {
-      toast.error(err.message);
+      toast.error("User already exists ");
     }
 
     name.value = "";

@@ -82,27 +82,27 @@ const cancelLogOut = () => {
         </NuxtLink>
         <NuxtLink
           to="/login"
-          v-if="!store.currentUser"
+          v-if="!store.user"
           class="text-white hidden tracking-widest bg-blue-400 hover:bg-blue-500 cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 md:flex lg:flex font-medium rounded-lg text-sm px-4 py-3 mr-3 text-center"
         >
           Login
         </NuxtLink>
         <NuxtLink
-          v-if="!store.currentUser"
+          v-if="!store.user"
           to="/signup"
           class="text-white hidden tracking-widest bg-blue-500 hover:bg-blue-600 cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 md:flex lg:flex font-medium rounded-lg text-sm px-4 py-3 text-center"
         >
           Get Started
         </NuxtLink>
         <button
-          v-if="store.currentUser"
+          v-if="store.user"
           @click="HandlelogOut"
           class="text-white hidden tracking-widest bg-red-500 hover:bg-red-600 cursor-pointer focus:ring-4 focus:outline-none focus:ring-red-300 md:flex lg:flex font-medium rounded-lg text-sm px-4 py-3 text-center"
         >
           LogOut
         </button>
         <button
-          v-if="store.currentUser"
+          v-if="store.user"
           @click="HandlelogOut"
           class="text-white bg-red-500 p-3 flex tracking-widest cursor-pointer md:hidden lg:hidden font-medium rounded-lg text-lg text-center"
         >
