@@ -11,12 +11,12 @@ const password = ref("");
 const error = ref("");
 const toast = useToast();
 
-const handleLogin = () => {
+const handleLogin = async () => {
   if (email.value === "" || password.value === "") {
     toast.warning("Please Fill in all Inputs");
   } else {
     try {
-      store.login({ email: email.value, password: password.value });
+      await store.login({ email: email.value, password: password.value });
       error.value = "";
       toast.success(`Login successful`);
       setTimeout(() => {

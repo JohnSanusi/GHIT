@@ -1,11 +1,12 @@
 //@ts-nocheck
+import axios from "axios";
 import { defineStore } from "pinia";
 
 export const useMainStore = defineStore("main", {
   state: () => ({
     allItems: [],
     likes: {},
-    users: [],
+    user: null,
     currentUser: null,
   }),
   getters: {
@@ -32,22 +33,40 @@ export const useMainStore = defineStore("main", {
     isLiked(id) {
       return !!this.likes[id];
     },
-    signUp({ name, email, password }) {
-      const exists = this.users.find((user) => user.email === email);
-      if (exists) throw new Error("User already Exists");
-      const newUser = { id: Date.now(), name, email, password };
-      this.users.push(newUser);
-      this.currentUser = newUser;
-      console.log("users:", this.users);
-    },
-    login({ email, password }) {
-      const user = this.users.find(
-        (user) => user.email === email && user.password === password
+    async signUp(payload) {
+      const { data } = await axios.post(
+        "https://ghit-backend.onrender.com/api/auth/signup",
+        payload,
+        {
+          withCredentials: true,
+        }
       );
-      if (!user) throw new Error("invalid Login");
-      this.currentUser = user;
+
+      this.user = data.user;
     },
-    logOut() {
+
+    async login(payload) {
+      const { data } = await axios.post(
+        "https://ghit-backend.onrender.com/api/auth/login",
+        payload,
+        {
+          withCredentials: true,
+        }
+      );
+
+      this.user = data.user;
+
+      this.currentUser = data.user;
+    },
+    async logOut() {
+      await axios.post(
+        "https://ghit-backend.onrender.com/api/auth/logout",
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+      this.user = null;
       this.currentUser = null;
     },
   },

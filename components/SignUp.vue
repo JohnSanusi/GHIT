@@ -14,12 +14,12 @@ const error = ref("");
 
 const toast = useToast();
 
-const handleSignUp = () => {
+const handleSignUp = async () => {
   if (name.value === "" || email.value === "" || password.value === "") {
     toast.warning("Please Fill in all Inputs");
   } else {
     try {
-      store.signUp({
+    await  store.signUp({
         name: name.value,
         email: email.value,
         password: password.value,
