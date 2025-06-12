@@ -142,12 +142,7 @@ const processPayment = async () => {
 
       await axios.post(
         "https://ghit-backend.onrender.com/api/payment",
-        paymentData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+        paymentData
       );
 
       toast.success("Order submitted successfully");
