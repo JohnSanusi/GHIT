@@ -130,7 +130,7 @@ const processPayment = async () => {
 
       // To payment endpoint
       const paymentData = new FormData();
-      paymentData.append("fullName", paymentInfo.value.fullName);
+      paymentData.append("name", paymentInfo.value.fullName);
       paymentData.append("email", paymentInfo.value.email);
       paymentData.append("location", paymentInfo.value.location);
       paymentData.append("receipt", paymentInfo.value.receipt);
