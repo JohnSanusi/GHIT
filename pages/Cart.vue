@@ -130,14 +130,9 @@ const processPayment = async () => {
 
       // To payment endpoint
       const paymentData = new FormData();
-      paymentData.append(
-        "paymentInfo",
-        JSON.stringify({
-          fullName: paymentInfo.value.fullName,
-          email: paymentInfo.value.email,
-          location: paymentInfo.value.location,
-        })
-      );
+      paymentData.append("fullName", paymentInfo.value.fullName);
+      paymentData.append("email", paymentInfo.value.email);
+      paymentData.append("location", paymentInfo.value.location);
       paymentData.append("receipt", paymentInfo.value.receipt);
 
       await axios.post(
