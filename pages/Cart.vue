@@ -138,7 +138,7 @@ const processPayment = async () => {
           location: paymentInfo.value.location,
         })
       );
-      paymentData.append("reciept", paymentInfo.value.receipt);
+      paymentData.append("receipt", paymentInfo.value.receipt);
 
       await axios.post(
         "https://ghit-backend.onrender.com/api/payment",
